@@ -1,25 +1,27 @@
 class node:
 
-	def __init__(self,item):
+	def __init__(self,item,last):
 		if item == None:
+			self.last = None
 			self.item = None
 			self.next = None
 		else:
+			self.last = last
 			self.item = item
-			self.next = node(None)
+			self.next = node(None,None)
 
-class ll:
+class dll:
 
 	def __init__(self):
-		self.head = node(None)
+		self.head = node(None,None)
 		self.count = 0
 
 	def add(self,item):
 		if self.head.next == None:
-			n = node(None)
+			n = node(None,None)
 		else:
 			n = self.head.next
-		self.head = node(item)
+		self.head = node(item,item)
 		self.head.next = n
 		self.count += 1
 
@@ -27,6 +29,7 @@ class ll:
 		n = self.head
 		while n.next.item != item:
 			n = n.next
+		n.next.last = n.last
 		n.next = n.next.next
 		self.count -= 1
 
@@ -52,7 +55,7 @@ class ll:
 		n = self.head
 		while n.next != None:
 			n = n.next
-		n.next = node(item)
+		n.next = node(item,n)
 		self.count += 1
 
 	def index(self,item):
@@ -69,7 +72,7 @@ class ll:
 		n = self.head
 		for f in range(pos):
 			n = n.next
-		o = node(item)
+		o = node(item,n)
 		o.next = n.next
 		n.next = o
 
@@ -79,7 +82,7 @@ class ll:
 		while n.next != None:
 			p = n
 			n = n.next
-		p.next = node(None)
+		p.next = node(None,None)
 		return(n.item)
 
 	def pop(self,item):
@@ -89,4 +92,5 @@ class ll:
 			p = n
 			n = n.next
 		p.next = n.next
+		n.next.last = p
 		return(n.item)
