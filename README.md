@@ -16,20 +16,13 @@ Implement six similar ordered collection data types.
 
 # stack
 
-* init
-* push(item) - adds new item to top
-* pop() - removes and returns top item
-* peek() - returns top item but does not remove it
-* isEmpty() - returns true if empty
-* size() - returns number of items in stack
+* test
+* bugfix
 
 # queue
 
-* init
-* enqueue(item) - adds new item to rear
-* dequeue() - removes front item
-* isEmpty() - returns true if empty
-* size() - returns number of items
+* test
+* bugfix
 
 # deque
 
