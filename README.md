@@ -4,21 +4,13 @@ Implement six similar ordered collection data types.
 
 # linked list
 
-* init
-* add(item) - adds to beginning of list
-* remove(item) - removes the item from the list
-* search(item) - returns boolean of if exists
-* isEmpty() - returns true if empty
-* size() - return number of items in list
-* append(item) - adds item to end of list
-* index(item) - returns position of item
-* insert(pos,item) - inserts item at position
-* pop() - removes and returns last item of list
-* pop(pos) - removes and returns item at pos
+* test
+* bugfix
 
 # doubly linked list
 
-* modify above
+* test
+* bugfix
 
 # q: is internal list linked list?
 
