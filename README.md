@@ -26,13 +26,8 @@ Implement six similar ordered collection data types.
 
 # deque
 
-* init
-* addFront(item) - adds new item to front
-* addRear(item) - adds new item to rear
-* removeFront() - remove and return front item
-* removeRear() - remove and return rear item
-* isEmpty() - returns true if empty
-* size() - returns number of items
+* test
+* bugfix
 
 # peverse polish notation
 
