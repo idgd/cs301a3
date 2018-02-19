@@ -18,14 +18,14 @@ class dll:
 
 	def add(self,item):
 	# add to beginning
-		if self.head == node(None,None) and self.head.next == None:
+		if self.head.next == None:
 			self.head = node(item,None)
 			self.count = 1
 		else:
 			n = self.head.next
 			self.head = node(item,None)
-			n.last = self.head
 			self.head.next = n
+			n.last = self.head
 			self.count += 1
 
 	def remove(self,item):
@@ -99,9 +99,9 @@ class dll:
 		while n.next.next != None:
 			n = n.next
 		n.last.next = node(None,None)
-		return(n)
+		return(n.item)
 
-	def pop(self,item):
+	def delete(self,item):
 	# delete and return matching item
 		n = self.head
 		while n.item != item and n.next.next != None:
