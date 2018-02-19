@@ -2,12 +2,12 @@ class node:
 
 	def __init__(self,item,last):
 		if item == None:
-			self.last = None
 			self.item = None
+			self.last = None
 			self.next = None
 		else:
-			self.last = last
 			self.item = item
+			self.last = last
 			self.next = node(None,None)
 
 class dll:
@@ -17,80 +17,97 @@ class dll:
 		self.count = 0
 
 	def add(self,item):
-		if self.head.next == None:
-			n = node(None,None)
+	# add to beginning
+		if self.head == node(None,None) and self.head.next == None:
+			self.head = node(item,None)
+			self.count = 1
 		else:
 			n = self.head.next
-		self.head = node(item,item)
-		self.head.next = n
-		self.count += 1
+			self.head = node(item,None)
+			n.last = self.head
+			self.head.next = n
+			self.count += 1
 
 	def remove(self,item):
+	# remove first matching item
 		n = self.head
-		while n.next.item != item:
+		p = node(None,None)
+		while n.item != item and n.next != node(None,None):
+			p = n
 			n = n.next
-		n.next.last = n.last
-		n.next = n.next.next
+		if n.next != None:
+			p.next = n.next
+		else:
+			p.next = node(None,None)
 		self.count -= 1
 
 	def search(self,item):
+	# return boolean if exists
 		n = self.head
-		while n.next.item != item:
+		while n.item != item and n.next != node(None,None):
 			n = n.next
-		if n.next == None:
+		if n == node(None,None):
 			return(False)
 		else:
 			return(True)
 
 	def isEmpty(self):
-		if self.head.item != None and self.head.next.item != None:
-			return(False)
-		else:
+	# return true if empty, false otherwise
+		if self.head == node(None,None) and self.head.next == None:
 			return(True)
+		else:
+			return(False)
 
 	def size(self):
+	# return size of dll
 		return(self.count)
 
 	def append(self,item):
+	# add to end
 		n = self.head
-		while n.next != None:
+		while n.next != node(None,None):
 			n = n.next
 		n.next = node(item,n)
 		self.count += 1
 
 	def index(self,item):
+	# return how far into the dll matching item is (search with count)
 		n = self.head
+		# counter
 		c = 0
-		if n.item == item:
-			return(0)
-		while n.next.item != item:
+		while n.item != item and n.next != node(None,None):
 			n = n.next
 			c += 1
-		return(c)
+		if n == node(None,None):
+			return(False)
+		else:
+			return(c)
 
 	def insert(self,pos,item):
+	# insert at position
 		n = self.head
 		for f in range(pos):
 			n = n.next
-		o = node(item,n)
-		o.next = n.next
-		n.next = o
+		# inserted node's next
+		a = n.next
+		n.next = node(item,n)
+		n.next.next = a
 
 	def pop(self):
+	# delete and return last item
 		n = self.head
-		p = None
-		while n.next != None:
-			p = n
+		while n.next != node(None,None):
 			n = n.next
-		p.next = node(None,None)
-		return(n.item)
+		n.last.next = node(None,None)
+		return(n)
 
 	def pop(self,item):
+	# delete and return matching item
 		n = self.head
-		p = None
-		while n.next != item:
-			p = n
+		while n.item != item and n.next != node(None,None):
 			n = n.next
-		p.next = n.next
-		n.next.last = p
-		return(n.item)
+		if n.item == item:
+			n.last.next = n.next
+			return(n.item)
+		else:
+			return(False)
