@@ -16,7 +16,7 @@ class ll:
 
 	def add(self,item):
 	# add to beginning
-		if self.head == node(None) and self.head.next == None:
+		if self.head.next == None:
 			self.head = node(item)
 			self.count = 1
 		else:
@@ -29,7 +29,7 @@ class ll:
 	# remove first matching item
 		n = self.head
 		p = node(None)
-		while n.item != item and n.next != node(None):
+		while n.item != item and n.next.next != None:
 			p = n
 			n = n.next
 		if n.next != None:
@@ -41,7 +41,7 @@ class ll:
 	def search(self,item):
 	# return boolean if exists
 		n = self.head
-		while n.item != item and n.next != node(None):
+		while n.item != item and n.next.next != None:
 			n = n.next
 		if n == node(None):
 			return(False)
@@ -59,20 +59,12 @@ class ll:
 	# return size of ll
 		return(self.count)
 
-	def append(self,item):
-	# add to end
-		n = self.head
-		while n.next != node(None):
-			n = n.next
-		n.next = node(item)
-		self.count += 1
-
 	def index(self,item):
 	# return how far into the ll matching item is (search with count)
 		n = self.head
 		# counter
 		c = 0
-		while n.item != item and n.next != node(None):
+		while n.item != item and n.next.next != None:
 			n = n.next
 			c += 1
 		if n == node(None):
@@ -90,20 +82,28 @@ class ll:
 		n.next = node(item)
 		n.next.next = a
 
+	def append(self,item):
+	# add to end
+		n = self.head
+		while n.next.next != None:
+			n = n.next
+		n.next = node(item)
+		self.count += 1
+
 	def pop(self):
 	# delete and return last item
 		n = self.head
 		p = node(None)
-		while n.next != node(None):
+		while n.next.next != None:
 			p = n
 			n = n.next
 		p.next = node(None)
-		return(n)
+		return(n.item)
 
-	def pop(self,item):
+	def delete(self,item):
 	# delete and return matching item
 		n = self.head
-		while n.item != item and n.next != node(None):
+		while n.item != item and n.next.next != None:
 			p = n
 			n = n.next
 		if n.item == item:
