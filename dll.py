@@ -32,7 +32,7 @@ class dll:
 	# remove first matching item
 		n = self.head
 		p = node(None,None)
-		while n.item != item and n.next != node(None,None):
+		while n.item != item and n.next.next != None:
 			p = n
 			n = n.next
 		if n.next != None:
@@ -44,7 +44,7 @@ class dll:
 	def search(self,item):
 	# return boolean if exists
 		n = self.head
-		while n.item != item and n.next != node(None,None):
+		while n.item != item and n.next.next != None:
 			n = n.next
 		if n == node(None,None):
 			return(False)
@@ -65,7 +65,7 @@ class dll:
 	def append(self,item):
 	# add to end
 		n = self.head
-		while n.next != node(None,None):
+		while n.next.next != None:
 			n = n.next
 		n.next = node(item,n)
 		self.count += 1
@@ -75,7 +75,7 @@ class dll:
 		n = self.head
 		# counter
 		c = 0
-		while n.item != item and n.next != node(None,None):
+		while n.item != item and n.next.next != None:
 			n = n.next
 			c += 1
 		if n == node(None,None):
@@ -96,7 +96,7 @@ class dll:
 	def pop(self):
 	# delete and return last item
 		n = self.head
-		while n.next != node(None,None):
+		while n.next.next != None:
 			n = n.next
 		n.last.next = node(None,None)
 		return(n)
@@ -104,7 +104,7 @@ class dll:
 	def pop(self,item):
 	# delete and return matching item
 		n = self.head
-		while n.item != item and n.next != node(None,None):
+		while n.item != item and n.next.next != None:
 			n = n.next
 		if n.item == item:
 			n.last.next = n.next
