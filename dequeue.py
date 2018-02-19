@@ -1,44 +1,25 @@
-class node:
-
-	def __init__(self,item):
-		if item == None:
-			self.item = None
-			self.next = None
-		else:
-			self.item = item
-			self.next = node(None)
-
-class queue:
+class dequeue:
 
 	def __init__(self):
-		self.head = node(None)
-		self.count = 0
+		self.dq = []
 
 	def addFront(self,item):
-		n = self.head
-		while n.next.next != None:
-			n = n.next
-		n.next = node(item)
+		self.dq.append(item)
 
 	def addRear(self,item):
-		n = self.head
-		self.head = node(item)
-		self.head.next = n
+		self.dq.insert(0,item)
 
 	def removeFront(self):
-		n = self.head
-		while n.next.next != None:
-			n = n.next
-		n.next = node(None)
+		del self.dq[-1]
 
 	def removeRear(self):
-		self.head = self.head.next
+		del self.dq[0]
 
 	def isEmpty(self):
-		if self.head.next == None:
+		if not self.dq:
 			return(True)
 		else:
 			return(False)
 
 	def size(self):
-		return(self.count)
+		return(len(self.dq))

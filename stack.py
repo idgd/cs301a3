@@ -1,46 +1,22 @@
-class node:
-
-	def __init__(self,item):
-		if item == None:
-			self.item = None
-			self.next = None
-		else:
-			self.item = item
-			self.next = node(None)
-
 class stack:
 
 	def __init__(self):
-		self.head = node(None)
-		self.count = 0
+		self.s = []
 
 	def push(self,item):
-		n = self.head
-		while n.next.item != None:
-			n = n.next
-		n.next = node(item)
-		self.count += 1
+		self.s.append(item)
 
 	def pop(self):
-		n = self.head
-		while n.next.item != None:
-			p = n
-			n = n.next
-		p.next = node(None)
-		self.count -= 1
-		return(n)
+		return(self.s.pop())
 
 	def peek(self):
-		n = self.head
-		while n.next.item != None:
-			n = n.next
-		return(n)
+		return(self.s[-1])
 
 	def isEmpty(self):
-		if self.head.next == None:
+		if not self.s:
 			return(True)
 		else:
 			return(False)
 
 	def size(self):
-		return(self.count)
+		return(len(self.s))
