@@ -10,10 +10,14 @@ class dequeue:
 		self.dq.insert(0,item)
 
 	def removeFront(self):
+		r = self.dq[-1]
 		del self.dq[-1]
+		return(r)
 
 	def removeRear(self):
+		r = self.dq[0]
 		del self.dq[0]
+		return(r)
 
 	def isEmpty(self):
 		if not self.dq:

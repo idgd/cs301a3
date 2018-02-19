@@ -32,4 +32,4 @@ From my testing in CS301a2, doesn't look like it. The list appends and pops diff
 
 # peverse polish notation
 
-Write a `rpn` function that takes string input and outputs strings.
+* done!
