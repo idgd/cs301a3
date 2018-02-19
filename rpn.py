@@ -21,7 +21,10 @@ def rpn(func):
 					n /= g
 				s = [n]
 			else:
-				s.append(int(f))
+				s.append(float(f))
 	except:
 		print("invalid RPN function")
-	return(str(s[0]))
+	try:
+		return(str(s[0]))
+	except:
+		return("invalid RPN function")
