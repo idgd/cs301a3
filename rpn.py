@@ -4,22 +4,21 @@ def rpn(func):
 		s = []
 		for f in n:
 			if f == '+':
-				s = [sum(s)]
+				a = s.pop()
+				b = s.pop()
+				s.append(a + b)
 			elif f == '-':
-				n = s[0]
-				for g in s[1:]:
-					n -= g
-				s = [n]
+				a = s.pop()
+				b = s.pop()
+				s.append(a - b)
 			elif f == '*':
-				n = s[0]
-				for g in s[1:]:
-					n *= g
-				s = [n]
+				a = s.pop()
+				b = s.pop()
+				s.append(a * b)
 			elif f == '/':
-				n = s[0]
-				for g in s[1:]:
-					n /= g
-				s = [n]
+				a = s.pop()
+				b = s.pop()
+				s.append(a / b)
 			else:
 				s.append(float(f))
 	except:
