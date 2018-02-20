@@ -17,7 +17,7 @@ print("\n Testing reverse polish notation \n")
 
 print(rpn.rpn(""))
 print(rpn.rpn("3"))
-print(rpn.rpn("3 3"))
+print(rpn.rpn("1 3 3 * +"))
 print(rpn.rpn("3 3 *"))
 print(rpn.rpn("3.25 3 *"))
 print(rpn.rpn("1 2 * 3 + 4"))
@@ -26,6 +26,7 @@ print(rpn.rpn("10000000000000000 99 *"))
 # testing ll
 print("\n Testing linked list \n")
 
+print(ll.isEmpty())
 ll.add("testing, testing")
 print(ll.search("testing, testing"))
 ll.append("2")
