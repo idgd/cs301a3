@@ -1,23 +1,22 @@
+from dll import dll
+
 class queue:
 
 	def __init__(self):
-		self.q = []
+		self.q = dll()
 
 	def enqueue(self,item):
-		self.q.insert(0,item)
-		# linear (n) time
+		self.q.add(item)
+		# constant time
 
 	def dequeue(self):
 		return(self.q.pop())
-		# constant time
+		# linear time
 
 	def isEmpty(self):
-		if not self.q:
-			return(True)
-		else:
-			return(False)
+		return(self.q.isEmpty())
 		# constant time
 
 	def size(self):
-		return(len(self.q))
-		# constant time
+		return(self.q.size())
+		# linear time

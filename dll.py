@@ -24,7 +24,7 @@ class dll:
 			self.head = node(item,None)
 			self.count = 1
 		else:
-			n = self.head.next
+			n = self.head
 			self.head = node(item,None)
 			self.head.next = n
 			n.last = self.head
@@ -101,6 +101,7 @@ class dll:
 		while n.next.next != None:
 			n = n.next
 		n.last.next = node(None,None)
+		self.count -= 1
 		return(n.item)
 
 	def delete(self,item):

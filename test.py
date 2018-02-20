@@ -67,12 +67,13 @@ print(stack.size())
 # testing queue
 print("\n Testing queue \n")
 
-queue.enqueue("aoeu")
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
 print(queue.dequeue())
 print(queue.isEmpty())
 print(queue.size())
 queue.enqueue("eu")
-print(queue.isEmpty())
 print(queue.size())
 
 # testing dequeue
