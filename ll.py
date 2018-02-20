@@ -50,7 +50,7 @@ class ll:
 
 	def isEmpty(self):
 	# return true if empty, false otherwise
-		if self.head == node(None) and self.head.next == None:
+		if self.head.next == None:
 			return(True)
 		else:
 			return(False)
@@ -98,6 +98,12 @@ class ll:
 			p = n
 			n = n.next
 		p.next = node(None)
+		return(n.item)
+
+	def peek(self):
+		n = self.head
+		while n.next.next != None:
+			n = n.next
 		return(n.item)
 
 	def delete(self,item):

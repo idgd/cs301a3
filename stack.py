@@ -1,27 +1,29 @@
+from ll import ll
+
 class stack:
 
 	def __init__(self):
-		self.s = []
+		self.s = ll()
 
 	def push(self,item):
-		self.s.append(item)
-		# constant time
+		if self.s.isEmpty():
+			self.s.add(item)
+		else:
+			self.s.append(item)
+		# linear time
 
 	def pop(self):
 		return(self.s.pop())
-		# constant time
+		# linear time
 
 	def peek(self):
-		return(self.s[-1])
-		# constant time
+		return(self.s.peek())
+		# linear time
 
 	def isEmpty(self):
-		if not self.s:
-			return(True)
-		else:
-			return(False)
+		return(self.s.isEmpty())
 		# constant time
 
 	def size(self):
-		return(len(self.s))
+		return(self.s.size())
 		# constant time

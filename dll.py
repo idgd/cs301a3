@@ -1,3 +1,4 @@
+# doubly linked node class
 class node:
 
 	def __init__(self,item,last):
@@ -10,6 +11,7 @@ class node:
 			self.last = last
 			self.next = node(None,None)
 
+# doubly linked list class
 class dll:
 
 	def __init__(self):
@@ -53,7 +55,7 @@ class dll:
 
 	def isEmpty(self):
 	# return true if empty, false otherwise
-		if self.head == node(None,None) and self.head.next == None:
+		if self.head.next == None:
 			return(True)
 		else:
 			return(False)
